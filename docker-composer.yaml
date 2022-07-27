@@ -1,0 +1,17 @@
+version: '3'
+services:
+    pyspark_env:
+        container_name: pyspark_tutor
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: pyspark_tutor:v1
+        # command: bash -c 'while !</dev/tcp/dpostgresdb/5432; do sleep 1; done; uvicorn app.main:app --host 0.0.0.0'
+        volumes:
+            - ./src/:/usr/local/myapp/src/
+        ports:
+            - 8008:8000
+            - 8880:8888
+        working_dir: /usr/local/myapp
+        
+        
