@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pyspark-app
+  namespace: pyspark-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: pyspark-app
+          image: 099894482512.dkr.ecr.eu-central-1.amazonaws.com/pyspark:latest
+          ports:
+            - containerPort: 8888

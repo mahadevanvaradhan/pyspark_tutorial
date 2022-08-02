@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pyspark-service
+  namespace: pyspark-test
+  labels:
+    app: pyspark-app
+spec:
+  type: ClusterIP
+  selector:
+    app: pyspark-app
+  ports:
+    - protocol: TCP
+      port: 8888
+      targetPort: 8888
