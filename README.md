@@ -56,16 +56,15 @@ Explanation of all PySpark RDD, DataFrame and SQL examples present on this proje
 docker build -t pyspark_tutor .
 docker run -dp 8890:8888 pyspark_tutor
 
-
 or
-
 
 docker-compose -f docker-composer.yaml up --build -d
 
 
-Deploy 
+## Deploy in AWS EKS
 
-kubectl create namespace pyspark
-kubectl apply -f kube_deploy.yaml
-kubectl -n pyspark get pods
-kubectl get pods/pyspark-6cffbf9c99-8zfzn
+- aws eks --profile <profilename> --region <region-name> update-kubeconfig --name <clustername>
+- kubectl create namespace pyspark
+- kubectl apply -f kube_deploy.yaml
+- kubectl -n pyspark get pods
+- kubectl get pods/pyspark-6cffbf9c99-8zfzn
