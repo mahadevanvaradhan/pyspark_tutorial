@@ -67,6 +67,11 @@ docker-compose -f docker-composer.yaml up --build -d
   AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY <br>
   Default region name [None]: us-west-2 <br>
   Default output format [None]: json <br>
+  
+## Configure EKS
+
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp <br>
+sudo mv /tmp/eksctl /usr/bin
 
 ## Deploy in AWS EKS
 
