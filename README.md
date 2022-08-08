@@ -63,7 +63,7 @@ docker-compose -f docker-composer.yaml up --build -d
 
 ## Deploy in AWS EKS
 
-- aws eks --profile "<profilename>" --region "<region-name>" update-kubeconfig --name "<clustername>"
+- aws eks --profile "profilename" --region "region-name" update-kubeconfig --name "clustername"
 - kubectl create namespace pyspark
 - kubectl apply -f kube_deploy.yaml
 - kubectl -n pyspark get pods
