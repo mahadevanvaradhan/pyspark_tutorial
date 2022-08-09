@@ -75,7 +75,7 @@ https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#install-with-homeb
 ## Configure EKS
 
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp <br>
-sudo mv /tmp/eksctl /usr/bin
+sudo mv /tmp/eksctl /usr/local/bin
 
 ## Deploy in AWS EKS
 
