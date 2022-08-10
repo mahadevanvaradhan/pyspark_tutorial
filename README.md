@@ -56,16 +56,35 @@ Explanation of all PySpark RDD, DataFrame and SQL examples present on this proje
 docker build -t pyspark_tutor .
 docker run -dp 8890:8888 pyspark_tutor
 
-
 or
-
 
 docker-compose -f docker-composer.yaml up --build -d
 
+## AWS Configure
 
-Deploy 
+  $ aws configure <br>
+  AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE <br>
+  AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY <br>
+  Default region name [None]: us-west-2 <br>
+  Default output format [None]: json <br>
 
-kubectl create namespace pyspark
-kubectl apply -f kube_deploy.yaml
-kubectl -n pyspark get pods
-kubectl get pods/pyspark-6cffbf9c99-8zfzn
+## Install Kubectl in local
+
+https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#install-with-homebrew-on-macos
+
+## Configure EKS
+
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp <br>
+sudo mv /tmp/eksctl /usr/local/bin
+
+## Deploy in AWS EKS
+
+- aws eks --profile "profilename" --region "region-name" update-kubeconfig --name "clustername"
+- kubectl create namespace pyspark
+- kubectl apply -f kube_deploy.yaml
+- kubectl -n pyspark get pods
+- kubectl get pods/pyspark-6cffbf9c99-8zfzn
+
+### Autoscale 
+eksctl create cluster --name=cluster-5 --nodes-min=3 --nodes-max=5
+
