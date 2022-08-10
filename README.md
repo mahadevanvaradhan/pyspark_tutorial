@@ -84,3 +84,7 @@ sudo mv /tmp/eksctl /usr/local/bin
 - kubectl apply -f kube_deploy.yaml
 - kubectl -n pyspark get pods
 - kubectl get pods/pyspark-6cffbf9c99-8zfzn
+
+### Autoscale 
+eksctl create cluster --name=cluster-5 --nodes-min=3 --nodes-max=5
+
